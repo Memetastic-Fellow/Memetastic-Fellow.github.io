@@ -18,21 +18,26 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create
 
 function preload() {
 
-    game.load.image('sky', 'assets/DOOM4-2.jpg');
-    game.load.image('ground', 'assets/platform.png');
-    game.load.image('star', 'assets/EMoNddM.gif');
-    game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+    game.load.tilemap('level1', 'assets/games/starstruck/level1.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('tiles-1', 'assets/games/starstruck/tiles-1.png');
+    game.load.spritesheet('dude', 'assets/games/starstruck/dude.png', 32, 48);
+    game.load.spritesheet('droid', 'assets/games/starstruck/droid.png', 32, 32);
+    game.load.image('starSmall', 'assets/games/starstruck/star.png');
+    game.load.image('starBig', 'assets/games/starstruck/star2.png');
+    game.load.image('background', 'assets/games/starstruck/background2.png');
 
 }
 
+var map;
+var tileset;
+var layer;
 var player;
-var platforms;
+var facing = 'left';
+var jumpTimer = 0;
 var cursors;
-
-var stars;
-var score = 0;
-var scoreText;
-
+var jumpButton;
+var bg;
+	
 function create() {
 
     //  We're going to be using physics, so enable the Arcade Physics system
