@@ -25,12 +25,6 @@ function preload() {
     game.load.image('starBig', 'assets/games/starstruck/star2.png');
     game.load.image('background', 'assets/games/starstruck/Starstruck-Crawford.jpg');
     game.load.image('background2', 'assets/games/starstruck/backgrnd-mnts-s3.png');
-	
-    game.load.audi('background_music',assets/Hypnotic-Puzzle4.mp3);	
-    backgroundMusic = game.add.audio('background_music');
-    backgroundMusic.loop = true; 
-    backgroundMusic.play();	
-
 }
 
 var map;
@@ -41,8 +35,7 @@ var facing = 'left';
 var jumpTimer = 0;
 var cursors;
 var jumpButton;
-var bg;
-var music;	
+var bg;	
 
 function create() {
 
