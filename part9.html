@@ -1,3 +1,4 @@
+
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
@@ -109,7 +110,7 @@ function update() {
         }
     }
     
-    if (jumpButton.isDown && player.body.onFloor() && game.time.now > jumpTimer)
+    if (jumpButton.isDown || player.body.onFloor() && game.time.now > jumpTimer)
     {
         player.body.velocity.y = -250;
         jumpTimer = game.time.now + 750;
